@@ -46,7 +46,8 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    width: calc(100vw - 300px);
+    max-width: 1600px;
     margin: 0 auto;
 }
 
@@ -87,6 +88,11 @@ header #navigation {
     height: 100%;
     width: 800px;
 }
+
+/* header #hamburger-menu,  */
+/* header #hamburger-menu-label { */
+    /* display: none; */
+/* } */
 
 header #navigation-list {
     height: 100%;
@@ -240,8 +246,8 @@ header .dropdown .dropdown-list>li a:hover {
 
 .banner .carousel-list-item img {
     width: 100vw;
-    max-width: 2000px;
-    height: 650px;
+    max-width: 2500px;
+    height: auto;
     object-fit: cover;
     object-position: center center;
 }
@@ -480,7 +486,8 @@ header .dropdown .dropdown-list>li a:hover {
 }
 
 #historia .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 50%;
     background-color: var(--color-03);
     box-shadow: 0 0 5px 0px var(--color-03);
 }
@@ -488,7 +495,6 @@ header .dropdown .dropdown-list>li a:hover {
 #historia .section-text {
     color: var(--color-05);
     padding: 25px;
-    width: 50%;
 }
 
 #historia .section-title {
@@ -510,8 +516,7 @@ header .dropdown .dropdown-list>li a:hover {
 
 #historia .section-image {
     display: flex;
-    align-items: center;    
-    width: 50%;
+    align-items: center;
     overflow: hidden;
 }
 
@@ -519,6 +524,7 @@ header .dropdown .dropdown-list>li a:hover {
     height: 100%;
     width: 100%;
     filter: saturate(.8);
+    object-fit: cover;
 }
 
 
@@ -536,33 +542,26 @@ header .dropdown .dropdown-list>li a:hover {
 
 #localizacao .map {
     border-radius: 5px;
+    width: 100%;
+    height: 200px;
 }
-
-/* #estrutura .section-title {
-    color: var(--color-04);
-} */
 
 #estrutura #structure-list {
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px solid var(--color-01); */
 }
 
 #estrutura .structure-list-item {
     flex: 1;
     margin: 0 1px;
     display: flex;
-    /* align-items: flex-end; */
-    /* justify-content: center; */
     overflow: hidden;
     position: relative;
 }
 
 #estrutura .structure-list-item:hover {
     flex: 8;
-    border: 1px solid var(--color-05);
-    /* border-radius: 0 25px 25px 25px; */
     margin: 0 5px;
 }
 
@@ -570,7 +569,6 @@ header .dropdown .dropdown-list>li a:hover {
     position: absolute;
     font-size: 16px;
     font-weight: bold;
-    /* transform: translate(10px, 10px); */
     text-align: center;
     display: block;
     cursor: pointer;
@@ -604,14 +602,11 @@ header .dropdown .dropdown-list>li a:hover {
     scale: 1.1;
 }
 
-/* #equipe .section-title {
-    margin-bottom: 25px;
-} */
-
 #equipe #team-list {
     display: grid;
+    justify-content: center;
     gap: 25px;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     justify-items: center;
     max-width: 1000px;
     margin: 0 auto;
@@ -623,6 +618,7 @@ header .dropdown .dropdown-list>li a:hover {
 } */
 
 #equipe .team-list-item {
+    /* width: 150px; */
     width: 150px;
     background-color: var(--color-05);
     color: var(--color-02);
@@ -633,7 +629,7 @@ header .dropdown .dropdown-list>li a:hover {
 }
 
 #equipe .team-list-item:hover {
-    box-shadow: 0 0 10  px 0px var(--color-01);
+    box-shadow: 0 0 10px 0px var(--color-01);
     transform: translateY(-5px);
 }
 
@@ -656,25 +652,25 @@ header .dropdown .dropdown-list>li a:hover {
 }
 
 #projetos #projects-list {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 25px;
     padding: 0 50px;
+    width: 100%;
 }
 
 #projetos .projects-list-item {
+    width: 100%;
     display: grid;
     grid-template-columns: 400px 1fr;
-    /* display: flex; */
     background-color: var(--color-03);
     border: 1px solid var(--color-01);
     border-radius: 5px;
-    overflow: hidden;
 }
 
 #projetos .projects-list-item:hover {
     transform: translateX(5px);
 }
-
 
 #projetos .projects-list-item-image {
     height: 100%;
@@ -708,8 +704,8 @@ header .dropdown .dropdown-list>li a:hover {
     /* background-color: var(--color-07); */
     border-left: 2px solid var(--color-05);
     /* border-radius: 0 5px 5px 0; */
-    white-space: nowrap;
-    width: min-content;
+    white-space: wrap;
+    /* width: min-content; */
     display: block;
     margin-bottom: 10px;
 }
@@ -724,6 +720,7 @@ header .dropdown .dropdown-list>li a:hover {
     font-size: 14px;
     line-height: 15px;
     margin-bottom: 15px;
+    text-wrap: wrap;
     /* max-height: 50px;
     overflow-y: auto; */
 }
@@ -901,7 +898,7 @@ header .dropdown .dropdown-list>li a:hover {
 
 footer {
     background-color: var(--color-01);
-    min-height: 60vh;
+    min-height: 40vh;
 }
 
 footer .container {
@@ -936,4 +933,173 @@ footer .footer-column-item a {
 
 footer .footer-column-item a:hover {
     transform: translateX(5px);
+}
+
+@media screen and (max-width: 1440px) {
+    header .container #logo > a p {
+        display: none;
+    }
+
+    header .container #logo > a {
+        padding: 0 25px;
+        margin-right: 100px;
+    }
+
+    header #navigation {
+        width: 100%;
+    }
+
+    .container {
+        width: calc(100vw - 200px);
+    }
+
+    #historia .container {
+        grid-template-columns: 1fr 40%;
+    }
+
+    #estrutura #structure-list {
+        overflow: auto;
+        height: 300px;
+    }
+
+    #estrutura .structure-list-item {
+        /* width: 100%;
+        height: 100%; */
+        flex: 0 0 auto;
+        /* max-width: unset; */
+        /* width: auto; */
+    }
+    
+    #estrutura .structure-list-item:hover {
+        flex: 0 0 auto;
+        margin: 0 1px;
+    }
+
+    #estrutura .structure-list-item img {
+        filter: brightness(1);
+    }
+
+    #estrutura .structure-list-item:hover img {
+        filter: brightness(1);
+        scale: 1.1;
+    }
+
+    #estrutura #structure-list:has(.structure-list-item:hover)
+    .structure-list-item:not(:hover) img {
+        filter: brightness(1) blur(0);
+        scale: 1;
+    }
+
+    #equipe #team-list {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #ensino .teaching-categories-list-item {
+        height: 175px;
+    }
+
+    #calendario-escolar #calendar-list {
+        grid-template-columns: 1fr;
+    }
+
+    #historia .container{
+        grid-template-columns: 1fr;
+    }
+
+    #historia .section-image{
+        display: none;
+    }
+
+    #projetos .projects-list-item {
+        /* grid-template-columns: 3100px 1fr; */
+    }
+
+    #eventos #events-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        width: calc(100vw - 100px);
+    }
+
+    header #navigation-list {
+        position: absolute;
+        background-color: var(--color-04);
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+        right: 25px;
+        top: 60px;
+        height: auto;
+        align-items: flex-start;
+        /* width: 200px; */
+        border-radius: 0 0 5px 5px;
+        box-shadow: 0 0 5px var(--color-01);
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        /* overflow: hidden; */
+        transition: .5s;
+    }
+
+    header #hamburger-menu {
+        color: var(--color-02);
+        display: block;
+        position: absolute;
+        right: 50px;
+        top: 15px;
+        height: 25px;
+        width: 25px;
+        font-size: 25px;
+        text-align: center;
+        /* background-color: turquoise; */
+        cursor: pointer;
+        z-index: 11;
+    }
+
+    header #hamburger-menu:hover + #navigation-list,
+    header #navigation-list:hover {
+        opacity: 1;
+        visibility: visible;
+        max-height: 100vh;
+    }
+
+    #projetos .projects-list-item {
+        min-width: 700px;
+        flex: 0 0 auto;
+        grid-template-columns: 300px 1fr;
+    }
+
+    #eventos #events-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        width: calc(100vw - 50px);
+    }
+
+    #ensino #teaching-categories-list {
+        grid-template-columns: 1fr;
+    }
+
+    #equipe #team-list {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
+    }
+
+    #projetos #projects-list {
+        flex-direction: row;
+        white-space: nowrap;
+        overflow-x: auto;
+        border: none;
+    }
+
+    #projetos #projects-list + .see-more-button {
+        display: none;
+    }
 }
