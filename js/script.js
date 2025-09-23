@@ -9,3 +9,24 @@ big_lists.forEach((big_list, index) => {
     });
   }
 });
+
+
+const imagem1 = document.getElementById('imagem1');
+const modal = document.getElementById('modalImagem');
+const imgExpandida = document.getElementById('imgExpandida');
+const fechar = document.getElementsByClassName('fechar')[0];
+
+imagem1.onclick = function() {
+  modal.style.display = "block";
+  imgExpandida.src = this.src;
+}
+
+fechar.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

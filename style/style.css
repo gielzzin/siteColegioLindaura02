@@ -833,12 +833,15 @@ header .dropdown .dropdown-list>li a:hover {
     line-height: 18px;
 }
 
+#galeria .ampliada {
+    display: none;
+}
+
 #galeria #gallery-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
     gap: 2px;
 }
-
 
 #galeria .gallery-list-item {
     overflow: hidden;
@@ -846,9 +849,12 @@ header .dropdown .dropdown-list>li a:hover {
 }
 
 #galeria .gallery-list-item img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    -webkit-transition: -webkit-transform .5s ease;
+    transition: transform .5s ease;
 }
 
 #galeria #gallery-list:has(.gallery-list-item:hover) .gallery-list-item:not(:hover) img {
@@ -856,7 +862,44 @@ header .dropdown .dropdown-list>li a:hover {
 }
 
 #galeria .gallery-list-item:hover img {
-    scale: 1.02;
+   scale: 1.02;
+   -webkit-transform: scale(1.0);
+   transform: scale(1.1);
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 999; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.8); 
+  transform: scale(1);
+}
+
+.modal-conteudo {
+  display: block;
+  margin: auto;
+  max-width: 80vw;
+  max-height: 80vh;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  margin: auto;
+  transition: 100s;
+}
+
+.fechar {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
 }
 
 #contato {
